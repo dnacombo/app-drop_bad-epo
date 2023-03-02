@@ -1,0 +1,4 @@
+{
+    "mne": "/network/lustre/iss02/cenir/analyse/meeg/BRAINLIFE/datasets/dummy-epo.fif",
+    "drop": [1,2,4]
+}
