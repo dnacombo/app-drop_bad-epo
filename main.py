@@ -10,7 +10,6 @@ import mne
 #import helper
 import re
 
-
 # load inputs from config.json
 with open('config.json') as config_json:
 	#config =  helper.convert_parameters_to_None(json.load(config_json))
@@ -20,6 +19,7 @@ data_file = config['mne']
 
 epochs = mne.read_epochs(data_file,verbose=False)
 drop = config['drop'].split(',')
+drop = [int(x) for x in drop]
 epochs.drop(drop)
 
-epochs.save(os.path.join('out_dir','raw.fif'))
+epochs.save(os.path.join('out_dir','epochs.fif'))
