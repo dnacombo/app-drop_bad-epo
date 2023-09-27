@@ -18,7 +18,7 @@ with open('config.json') as config_json:
 data_file = config['mne']
 
 epochs = mne.read_epochs(data_file,verbose=False)
+drop = config['drop'].split(',')
+epochs.drop(drop)
 
-epochs.drop(config['drop'])
-
-epochs.save(os.path.join('out_dir','meg.fif'))
+epochs.save(os.path.join('out_dir','raw.fif'))
