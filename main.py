@@ -22,4 +22,4 @@ drop = config['drop'].split(',')
 drop = [int(x) for x in drop]
 epochs.drop(drop)
 
-epochs.save(os.path.join('out_dir','epochs.fif'))
+epochs.save(os.path.join('out_dir','meg-epo.fif'))
