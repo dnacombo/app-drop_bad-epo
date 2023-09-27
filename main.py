@@ -7,13 +7,14 @@ import os
 import json
 import numpy as np
 import mne
-import helper
+#import helper
 import re
 
 
 # load inputs from config.json
 with open('config.json') as config_json:
-	config =  helper.convert_parameters_to_None(json.load(config_json))
+	#config =  helper.convert_parameters_to_None(json.load(config_json))
+	config = json.load(config_json)
 
 data_file = config['mne']
 
