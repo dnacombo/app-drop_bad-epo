@@ -31,11 +31,15 @@ todrop1 = [re.sub(r'^\s*|\s*$', '', x) for x in todrop1]
 todrop1 = list(filter(None, todrop1))
 todrop1 = [int(x) for x in todrop1]
 
-todrop2 = config['drop'].split(',')
-todrop2 = [int(x) for x in todrop2]
+# if config['drop'] is not None, read it and add to todrop
+if config['drop'] is not None:
+	todrop2 = config['drop'].split(',')
+	todrop2 = [int(x) for x in todrop2]
+else:
+    todrop2 = []
 
 # create union of todrop1 and todrop2
 todrop = list(set(todrop1) | set(todrop2))
 
 epochs.drop(todrop)
-epochs.save(os.path.join('out_dir','meg.fif'))
+epochs.save(os.path.join('out_dir','meg.fif'), overwrite=True)
