@@ -42,4 +42,4 @@ else:
 todrop = list(set(todrop1) | set(todrop2))
 
 epochs.drop(todrop)
-epochs.save(os.path.join('out_dir','meg.fif'), overwrite=True)
+epochs.save(os.path.join('out_dir','meg-epo.fif'), overwrite=True)
