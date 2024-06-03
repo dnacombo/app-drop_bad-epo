@@ -43,3 +43,18 @@ todrop = list(set(todrop1) | set(todrop2))
 
 epochs.drop(todrop)
 epochs.save(os.path.join('out_dir','meg-epo.fif'), overwrite=True)
+
+# create string with rejected epochs
+info = 'Dropped epochs: ' + str(todrop)
+#Save the info into a info.txt file
+with open(os.path.join('out_dir','info.txt'), 'w') as f:
+    print(info, file=f)
+
+# create a product.json file to show the output
+dict_json_product = {'brainlife': []}
+
+info = str(info)
+dict_json_product['brainlife'].append({'type': 'info', 'msg': info})
+
+with open('product.json', 'w') as outfile:
+    json.dump(dict_json_product, outfile)
