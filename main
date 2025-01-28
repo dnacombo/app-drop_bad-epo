@@ -2,7 +2,7 @@
 
 #SBATCH --job-name=template
 #SBATCH --ntasks-per-node=1
-#SBATCH --mem=4G
+#SBATCH --mem=16G
 #SBATCH --time=00:15:00
 
 # Copyright (c) 2020 brainlife.io at University of Texas at Austin and Indiana University
