@@ -19,17 +19,20 @@ data_file = config['mne']
 
 epochs = mne.read_epochs(data_file,verbose=False)
 
-# read config['events']
-with open(config['events']) as f:
-	todrop1 = f.read()
-# turn todrop1 into a list of strings and remove leading and trailing whitespace or commas
-todrop1 = todrop1.split(',')
-# turn it to integers
-# remove leading and trailing whitespace or commas in the list
-todrop1 = [re.sub(r'^\s*|\s*$', '', x) for x in todrop1]
-# remove empty strings
-todrop1 = list(filter(None, todrop1))
-todrop1 = [int(x) for x in todrop1]
+# read config['events'] only if events is a key in config
+if 'events' not in config:
+	todrop1 = []
+else:
+	with open(config['events']) as f:
+		todrop1 = f.read()
+	# turn todrop1 into a list of strings and remove leading and trailing whitespace or commas
+	todrop1 = todrop1.split(',')
+	# turn it to integers
+	# remove leading and trailing whitespace or commas in the list
+	todrop1 = [re.sub(r'^\s*|\s*$', '', x) for x in todrop1]
+	# remove empty strings
+	todrop1 = list(filter(None, todrop1))
+	todrop1 = [int(x) for x in todrop1]
 
 # if config['drop'] is not None, read it and add to todrop
 if config['drop'] is not None:
