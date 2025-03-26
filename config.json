@@ -1,5 +1,0 @@
-{
-    "mne": "/network/lustre/iss02/cenir/analyse/meeg/BRAINLIFE/datasets/dummy-epo.fif",
-    "events": "/network/lustre/iss02/cenir/analyse/meeg/BRAINLIFE/code/app-drop-bad-epo/AggregatedTrialDrop/S01_T1_Firstpass.txt",
-    "drop": [1,2,4]
-}
